@@ -1,0 +1,217 @@
+/* crearCurso.css */
+#formCrearCurso {
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 75% !important;
+    margin: 20px auto;
+    background-color: #f8f9fa;      /* COLOR DE FONDO BOOTSTRAP */
+}
+
+#formCrearCurso h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #1b4965;
+    margin-bottom: 25px;
+}
+
+#formCrearCurso .form-label {
+    font-weight: 600;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+#formCrearCurso .form-control,
+#formCrearCurso .form-select {
+    border-radius: 10px;
+    border: 1px solid #d0d7de;
+    padding: 10px;
+}
+
+#formCrearCurso .btn-primary {
+    background-color: #4b6c80 !important;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+#formCrearCurso .btn-danger {
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.capitulo {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #d0d7de;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.capitulo .form-label {
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.cap-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.cap-borrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #ffffff !important;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.cap-borrar img {
+    width: 22px;
+    height: 22px;
+}
+
+.cap-buttons {
+    width: 100%;
+    margin-top: auto;
+}
+
+.cap-guardar {
+    width: 100%;
+    border-radius: 0;
+    background-color: #1b4965 !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px;
+    font-weight: bold;
+}
+
+#capitulosContainer .col-12 {
+    margin-bottom: 15px;
+}
+
+/* BOTON AÑADIR CAPITULO CON ICONO */
+#btnAgregarCapitulo {
+    background-color: #99b2c1;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#btnAgregarCapitulo img {
+    width: 22px;
+    height: 22px;
+}
+
+/* crearCurso.css – INPUTS MÁS GRISES Y ESTILO UNIFORME */
+#formCrearCurso .form-control,
+#formCrearCurso .form-select {
+    background-color: #eeeeee !important;
+    border: 1px solid #c7c7c7 !important;
+    color: #333333 !important;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+/* Inputs dentro de los capitulos */
+.cap-content .form-control {
+    background-color: #eeeeee !important;
+    border: 1px solid #c7c7c7 !important;
+    color: #333333 !important;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.cap-content textarea {
+    background-color: #eeeeee !important;
+    border: 1px solid #c7c7c7 !important;
+    color: #333333 !important;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+/* Hover suave */
+#formCrearCurso .form-control:hover,
+#formCrearCurso .form-select:hover,
+.cap-content .form-control:hover,
+.cap-content textarea:hover {
+    background-color: #e2e2e2 !important;
+}
+
+/* Focus sutil sin azul de Bootstrap */
+#formCrearCurso .form-control:focus,
+#formCrearCurso .form-select:focus,
+.cap-content .form-control:focus,
+.cap-content textarea:focus {
+    background-color: #e0e0e0 !important;
+    border-color: #b5b5b5 !important;
+    box-shadow: none !important;
+}
+
+/* H3 CON DOBLE BORDE, MAYOR SEPARACIÓN Y MISMA CURVA EN LAS 4 ESQUINAS */
+#formCrearCurso h3,
+#capitulosSection h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #1b4965;
+    margin-bottom: 25px;
+    padding: 14px 0;
+
+    border-top: 4px double #1b4965;
+    border-bottom: 4px double #1b4965;
+    border-left: 4px double #1b4965;
+    border-right: 4px double #1b4965;
+
+    border-spacing: 12px;
+
+    border-radius: 18px; /* MISMA CURVA EN LAS 4 ESQUINAS */
+}
+
+/* Barra de notificación en la parte superior */
+#messageBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745; /* Verde por defecto */
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    display: none; /* Oculto por defecto */
+    z-index: 9999;
+    border-bottom: 4px solid #155d27; /* Un borde más oscuro para el éxito */
+}
+
+#messageBar.error {
+    background-color: #dc3545; /* Rojo */
+    border-bottom: 4px solid #991c28; /* Un borde más oscuro para el error */
+}
+
+#messageBar.success {
+    background-color: #28a745; /* Verde */
+    border-bottom: 4px solid #155d27; /* Un borde más oscuro para el éxito */
+}

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap');
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #14405c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.title {
+    font-family: "Monoton", sans-serif;
+    font-size: 12vw; 
+    color: white;
+    line-height: 1;
+}
+
+.slogan {
+    font-size: 1.9rem;
+    color: white;
+    font-family: "Momo Signature", cursive;
+}
+
+.btn-iniciar {
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+    color: #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-iniciar:hover {
+    color: #dae6f0;
+    transform: scale(1.05);
+    font-weight: bold;
+}

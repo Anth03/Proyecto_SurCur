@@ -1,0 +1,164 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+/* Navbar */
+.navbar.bg-primary {
+    background-color: #14405c !important;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #14405c !important;
+    border-color: #14405c !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #1b4965 !important; /* azul un poco más oscuro al pasar el mouse */
+    border-color: #1b4965 !important;
+    color: white !important;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #14405c; /* Títulos de cada curso en azul SurCur */
+}
+
+.card-text {
+    color: #333; /* texto legible */
+}
+
+/* Grupo de búsqueda */
+.search-group {
+    display: flex;
+}
+
+/* Input de búsqueda */
+.search-input {
+    width: 350px;
+    background-color: white !important;
+    color: #14405c;
+    border: 2px solid #ffffff;
+    border-radius: 15px 0 0 15px;
+    padding: 0.35rem 0.75rem;
+}
+
+/* Botón de la lupa */
+.search-btn {
+    background-color: white !important;
+    border: 2px solid #ffffff;
+    border-left: none;
+    border-radius: 0 15px 15px 0;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.search-btn img {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+/* Input de búsqueda sin efecto al hacer click o focus */
+.search-input,
+.search-input:focus,
+.search-input:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #ffffff !important;
+}
+
+/* Botón de la lupa sin efecto al hacer click o focus */
+.search-btn,
+.search-btn:focus,
+.search-btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: white !important; 
+    border-color: #ffffff !important;
+}
+
+.surcur-text {
+    font-family: "Monoton", sans-serif;
+    font-size: 2.3rem; /* aumenta un poco el tamaño de las letras */
+    color: white;
+}
+
+.card {
+    border: none;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px;
+}
+
+.card-content {
+    flex-grow: 1; 
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #14405c;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #333;
+    text-align: justify;
+}
+
+.card .btn-primary {
+    background-color: #14405c;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: auto; /* empuja el botón al fondo */
+}
+
+.card .btn-primary:hover {
+    background-color: #5c6e79 !important;
+}
+
+.crear-curso {
+    background-color: #9db9cd;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s; 
+}
+
+.crear-curso:hover {
+    background-color: #83abc8;
+    color: #333;
+}
