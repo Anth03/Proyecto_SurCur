@@ -15,7 +15,7 @@ if (!isset($_SESSION['usuario_id'])) {
 $id_creador = $_SESSION['usuario_id']; // Suponiendo que el ID del usuario está guardado en $_SESSION['usuario_id']
 
 // Recibir los datos del curso desde el formulario
-$nombre = $_POST['nombreCurso'];
+$nombre = strtoupper($_POST['nombreCurso']); // Convertir el nombre a mayúsculas
 $descripcion = $_POST['descripcionCurso'];
 $carrera = $_POST['carreraCurso'];
 $semestre = $_POST['semestreCurso'];

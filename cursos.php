@@ -54,9 +54,9 @@ $stmt->close();
         <button id="btnSerInstructor" class="btn crear-curso" onclick="window.location.href='instructor_alta.php'">SER INSTRUCTOR</button>
       <?php endif; ?>
 
-      <form class="d-flex mx-auto" role="search">
+      <form class="d-flex mx-auto" role="search" id="searchForm">
         <div class="input-group search-group">
-          <input class="form-control search-input" type="search" placeholder="Buscar curso" aria-label="Buscar">
+          <input class="form-control search-input" type="search" id="searchInput" placeholder="Buscar curso" aria-label="Buscar">
           <button class="btn search-btn" type="submit">
             <img src="img/icon/lupa.png" alt="Buscar" style="width: 20px; height: 20px;">
           </button>
@@ -118,34 +118,90 @@ $stmt->close();
       window.location.href = "crearCurso.php"; 
     });
 
+    // Variable global para almacenar todos los cursos
+    let todosLosCursos = [];
+
     // Fetch para obtener los cursos creados por el usuario
     fetch('connection/obtener_cursos.php')
       .then(response => response.json())
       .then(cursos => {
-        const cursosCreadosContainer = document.getElementById('cursosCreados');
-        
-        cursos.forEach(curso => {
-          const colDiv = document.createElement('div');
-          colDiv.classList.add('col-md-3');
-
-          const cardDiv = document.createElement('div');
-          cardDiv.classList.add('card', 'shadow-sm', 'position-relative');
-          cardDiv.style.minHeight = '400px';
-
-          cardDiv.innerHTML = `
-            <img src="https://picsum.photos/400/250?random=${curso.id}" class="card-img-top" alt="${curso.nombre}" style="height:200px; object-fit:cover;">
-            <div class="card-body">
-              <h5 class="card-title">${curso.nombre}</h5>
-              <p class="card-text">${curso.descripcion}</p>
-            </div>
-            <button class="btn btn-primary" style="position:absolute; bottom:0; left:0; width:100%; border-radius:0 0 10px 10px;">Editar curso</button>
-          `;
-
-          colDiv.appendChild(cardDiv);
-          cursosCreadosContainer.appendChild(colDiv);
-        });
+        todosLosCursos = cursos; // Guardar todos los cursos
+        mostrarCursos(cursos); // Mostrar todos los cursos inicialmente
       })
       .catch(error => console.error('Error al obtener los cursos:', error));
+
+    // Función para mostrar los cursos
+    function mostrarCursos(cursos) {
+      const cursosCreadosContainer = document.getElementById('cursosCreados');
+      cursosCreadosContainer.innerHTML = ''; // Limpiar el contenedor
+
+      if (cursos.length === 0) {
+        cursosCreadosContainer.innerHTML = '<p class="text-muted">No se encontraron cursos.</p>';
+        return;
+      }
+
+      cursos.forEach(curso => {
+        const colDiv = document.createElement('div');
+        colDiv.classList.add('col-md-3');
+
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card', 'shadow-sm', 'position-relative');
+        cardDiv.style.minHeight = '400px';
+
+        cardDiv.innerHTML = `
+          <img src="https://picsum.photos/400/250?random=${curso.id}" class="card-img-top" alt="${curso.nombre}" style="height:200px; object-fit:cover;">
+          <div class="card-body">
+            <h5 class="card-title">${curso.nombre}</h5>
+            <p class="card-text">${curso.descripcion}</p>
+          </div>
+          <button class="btn btn-primary" style="position:absolute; bottom:0; left:0; width:100%; border-radius:0 0 10px 10px;">Editar curso</button>
+        `;
+
+        colDiv.appendChild(cardDiv);
+        cursosCreadosContainer.appendChild(colDiv);
+      });
+    }
+
+    // Funcionalidad de búsqueda
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+
+    // Búsqueda en tiempo real mientras se escribe
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.trim().toUpperCase();
+      
+      if (searchTerm === '') {
+        mostrarCursos(todosLosCursos); // Mostrar todos los cursos si no hay término de búsqueda
+      } else {
+        const cursosFiltrados = todosLosCursos.filter(curso => {
+          return curso.nombre.toUpperCase().includes(searchTerm) ||
+                 curso.descripcion.toUpperCase().includes(searchTerm) ||
+                 curso.materia.toUpperCase().includes(searchTerm) ||
+                 curso.tema.toUpperCase().includes(searchTerm) ||
+                 curso.carrera.toUpperCase().includes(searchTerm);
+        });
+        mostrarCursos(cursosFiltrados);
+      }
+    });
+
+    // Prevenir el envío del formulario
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const searchTerm = searchInput.value.trim().toUpperCase();
+      
+      if (searchTerm === '') {
+        mostrarCursos(todosLosCursos);
+      } else {
+        const cursosFiltrados = todosLosCursos.filter(curso => {
+          return curso.nombre.toUpperCase().includes(searchTerm) ||
+                 curso.descripcion.toUpperCase().includes(searchTerm) ||
+                 curso.materia.toUpperCase().includes(searchTerm) ||
+                 curso.tema.toUpperCase().includes(searchTerm) ||
+                 curso.carrera.toUpperCase().includes(searchTerm);
+        });
+        mostrarCursos(cursosFiltrados);
+      }
+    });
   </script>
 
 </body>
